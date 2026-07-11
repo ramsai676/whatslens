@@ -9,6 +9,8 @@ life events — 100% in your browser. Nothing is uploaded, ever.
 
 </div>
 
+![WhatsLens demo](docs/demo.gif)
+
 ![WhatsLens dashboard](docs/dashboard-dark.png)
 
 ## The problem nobody notices
