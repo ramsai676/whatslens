@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --hairline: rgba(11, 11, 11, 0.1);
+  --hairline-strong: rgba(11, 11, 11, 0.16);
+  --brand: #188252;
+  --brand-strong: #146845;
+  --brand-soft: #eefbf2;
+  --series-blue: #2a78d6;
+  --series-blue-soft: rgba(42, 120, 214, 0.14);
+  --violet: #4a3aa7;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --serious: #ec835a;
+  --serious-text: #b4502d;
+  --critical: #d03b3b;
+  --shadow-card: 0 1px 2px rgba(11, 11, 11, 0.04), 0 4px 16px rgba(11, 11, 11, 0.04);
+  --shadow-panel: 0 8px 40px rgba(11, 11, 11, 0.16);
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.dark {
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --ink-3: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --hairline: rgba(255, 255, 255, 0.1);
+  --hairline-strong: rgba(255, 255, 255, 0.18);
+  --brand: #4abb81;
+  --brand-strong: #7fd5a7;
+  --brand-soft: rgba(74, 187, 129, 0.12);
+  --series-blue: #3987e5;
+  --series-blue-soft: rgba(57, 135, 229, 0.18);
+  --violet: #9085e9;
+  --good: #0ca30c;
+  --good-text: #0ca30c;
+  --serious: #ec835a;
+  --serious-text: #ec835a;
+  --critical: #d03b3b;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-panel: 0 8px 48px rgba(0, 0, 0, 0.6);
+}
+
+html {
+  background: var(--page);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ——— Buttons feel pressed ——— */
+.pressable {
+  transition: transform 160ms var(--ease-out-strong);
+}
+.pressable:active {
+  transform: scale(0.97);
+}
+
+/* ——— One-time entrance stagger (dashboard mount) ——— */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  opacity: 0;
+  animation: rise-in 400ms var(--ease-out-strong) forwards;
+}
+.rise-1 { animation-delay: 0ms; }
+.rise-2 { animation-delay: 40ms; }
+.rise-3 { animation-delay: 80ms; }
+.rise-4 { animation-delay: 120ms; }
+.rise-5 { animation-delay: 160ms; }
+.rise-6 { animation-delay: 200ms; }
+
+/* ——— Detail panel slide-over ——— */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.panel-enter {
+  animation: panel-in 250ms var(--ease-out-strong);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.overlay-enter {
+  animation: fade-in 200ms ease-out;
+}
+
+/* ——— Dropzone pulse when dragging over ——— */
+.dropzone {
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 200ms var(--ease-out-strong);
+}
+.dropzone.drag-over {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  transform: scale(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+  .panel-enter,
+  .overlay-enter {
+    animation-duration: 1ms;
+  }
+  .dropzone,
+  .pressable {
+    transition: none;
+  }
+}
+
+/* ——— Recessive scrollbars ——— */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--baseline) transparent;
+}
