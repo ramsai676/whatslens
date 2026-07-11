@@ -23,13 +23,13 @@ function assertEq<T>(actual: T, expected: T, label: string) {
 const androidChat = [
   '12/07/2025, 10:45 am - Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them.',
   '12/07/2025, 10:45 am - Priya Sharma: Hi, do you have gold bangles in stock?',
-  '12/07/2025, 10:52 am - Anirudh Jewellers: Yes madam, new designs arrived yesterday',
+  '12/07/2025, 10:52 am - Ram Jewellers: Yes madam, new designs arrived yesterday',
   '12/07/2025, 10:53 am - Priya Sharma: What is the rate today?',
-  '12/07/2025, 11:05 am - Anirudh Jewellers: <Media omitted>',
+  '12/07/2025, 11:05 am - Ram Jewellers: <Media omitted>',
   '13/07/2025, 9:15 pm - Priya Sharma: My daughter wedding is in November',
   'we need full bridal set',
   'budget around 5 lakhs',
-  '13/07/2025, 9:20 pm - Anirudh Jewellers: Congratulations! Please visit the shop, we will show you our bridal collection',
+  '13/07/2025, 9:20 pm - Ram Jewellers: Congratulations! Please visit the shop, we will show you our bridal collection',
 ].join('\n');
 
 console.log('Android 12h format');
@@ -52,7 +52,7 @@ console.log('Android 12h format');
 const iosChat = [
   '‎[25/12/24, 6:30:15 PM] Rahul Verma: ‎image omitted',
   '[25/12/24, 6:31:02 PM] Rahul Verma: Bhai is design ka price kitna hai',
-  '[25/12/24, 6:45:30 PM] Anirudh Jewellers: 45,000 sir, hallmark included',
+  '[25/12/24, 6:45:30 PM] Ram Jewellers: 45,000 sir, hallmark included',
   '[26/12/24, 11:00:00 AM] Rahul Verma: ok I am interested, will come Saturday',
 ].join('\n');
 
@@ -84,9 +84,9 @@ console.log('mm/dd disambiguation');
 console.log('Owner detection');
 {
   const c1 = parseChatFile('a.txt', androidChat);
-  const c2 = parseChatFile('b.txt', iosChat.replace(/Anirudh Jewellers/g, 'Anirudh Jewellers'));
+  const c2 = parseChatFile('b.txt', iosChat.replace(/Ram Jewellers/g, 'Ram Jewellers'));
   const owner = detectOwner([c1, c2]);
-  assertEq(owner, 'Anirudh Jewellers', 'owner = sender common to all files');
+  assertEq(owner, 'Ram Jewellers', 'owner = sender common to all files');
   assertEq(customerName(c1, owner), 'Priya Sharma', 'customer name resolved');
 }
 

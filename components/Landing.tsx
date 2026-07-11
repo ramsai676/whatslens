@@ -45,7 +45,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://github.com/anirudhr/whatslens"
+            href="https://github.com/ramsai/whatslens"
             className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]"
           >
             GitHub
@@ -56,7 +56,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
 
       <main className="mx-auto max-w-5xl px-6">
         {/* ——— Hero ——— */}
-        <section className="mx-auto max-w-2xl pt-14 text-center sm:pt-20">
+        <section className="hero-glow mx-auto max-w-2xl pt-14 text-center sm:pt-20">
           <p
             className="rise rise-1 mx-auto inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[13px] font-medium text-[var(--ink-2)]"
             style={{ borderColor: 'var(--hairline)' }}
@@ -65,7 +65,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
             100% private — runs entirely in your browser
           </p>
           <h1 className="rise rise-2 mt-6 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.02em] sm:text-[56px]">
-            Your WhatsApp already knows your best customers.
+            Your WhatsApp already knows your <span className="grad-text">best customers</span>.
           </h1>
           <p className="rise rise-3 mx-auto mt-5 max-w-xl text-pretty text-[17px] leading-relaxed text-[var(--ink-2)]">
             Drop your chat exports and WhatsLens shows you the VIPs, the dormant customers worth
@@ -93,7 +93,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
             }}
             onDragOver={(e) => e.preventDefault()}
             onDrop={onDrop}
-            className={`dropzone ${dragOver ? 'drag-over' : ''} group cursor-pointer rounded-2xl border-2 border-dashed px-8 py-12 text-center`}
+            className={`dropzone card-lift ${dragOver ? 'drag-over' : ''} group cursor-pointer rounded-2xl border-2 border-dashed px-8 py-12 text-center`}
             style={{
               borderColor: dragOver ? 'var(--brand)' : 'var(--hairline-strong)',
               background: 'var(--surface)',
@@ -169,7 +169,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
           ].map((f) => (
             <div
               key={f.title}
-              className="rounded-2xl border p-6"
+              className="card-lift rounded-2xl border p-6"
               style={{
                 borderColor: 'var(--hairline)',
                 background: 'var(--surface)',

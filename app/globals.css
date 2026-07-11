@@ -158,3 +158,49 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--baseline) transparent;
 }
+
+/* ——— Motion-grade chrome ——— */
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: -90px -60px auto;
+  height: 380px;
+  background: radial-gradient(620px 300px at 50% 12%, color-mix(in srgb, var(--brand) 17%, transparent), transparent 70%);
+  filter: blur(24px);
+  animation: glow-breathe 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.65; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.07); }
+}
+
+.grad-text {
+  background: linear-gradient(92deg, var(--brand), var(--brand-strong) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-lift {
+  transition:
+    transform 220ms var(--ease-out-strong),
+    box-shadow 220ms var(--ease-out-strong),
+    border-color 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+    border-color: color-mix(in srgb, var(--brand) 38%, var(--hairline)) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow::before { animation: none; }
+  .card-lift, .card-lift:hover { transition: none; transform: none; }
+}

@@ -1,10 +1,10 @@
 /**
- * Sample dataset: "Anirudh Jewellers", a mid-size jeweler.
+ * Sample dataset: "Ram Jewellers", a mid-size jeweler.
  * Generated as real WhatsApp export text so the demo runs through the
  * actual parser — what you see is exactly what an upload produces.
  */
 
-const OWNER = 'Anirudh Jewellers';
+const OWNER = 'Ram Jewellers';
 const ANCHOR = new Date(2026, 6, 10, 20, 0, 0).getTime(); // 10 Jul 2026
 const DAY = 24 * 60 * 60 * 1000;
 
@@ -72,7 +72,7 @@ export const SAMPLE_FILES: { name: string; content: string }[] = [
 
   // ─── Rajesh Kumar — DORMANT VIP: heavy Dhanteras buyer, silent 5 months ───
   chat('Rajesh Kumar', [
-    [610, 'c', 'Anirudh bhai, Dhanteras ke liye coins available hain?'],
+    [610, 'c', 'Ram bhai, Dhanteras ke liye coins available hain?'],
     [610, 'o', 'Haan bhai, 5g 10g 20g sab hai. Lakshmi ji wale bhi'],
     [610, 'c', '10g ke 4 coins book kar do'],
     [609, 'o', 'Done bhai, bill bana diya. Delivery Dhanteras se ek din pehle'],
@@ -162,7 +162,7 @@ export const SAMPLE_FILES: { name: string; content: string }[] = [
 
   // ─── Kavita Joshi — active VIP: boutique reseller, bulk orders ───
   chat('Kavita Joshi', [
-    [300, 'c', 'Hi Anirudh ji, I run a boutique in Jubilee Hills. Interested in wholesale silver'],
+    [300, 'c', 'Hi Ram ji, I run a boutique in Jubilee Hills. Interested in wholesale silver'],
     [300, 'o', 'Namaste madam, yes we do wholesale. GST bill ke saath'],
     [295, 'c', 'Send me the catalogue and price list'],
     [295, 'o', 'Sent on email madam. Bulk order pe 12% margin'],

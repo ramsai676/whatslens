@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { analyzeDataset, formatDate, formatDaysAgo } from '@/lib/analytics';
 import type { CustomerAnalysis, ParsedChat } from '@/lib/types';
 import { BadgeRow } from './Badges';
+import { AnimatedNumber } from './motion-bits';
 import { ActivityChart, Sparkline } from './charts';
 import { CustomerDetail } from './CustomerDetail';
 import { ThemeToggle } from './ThemeToggle';
@@ -53,13 +54,13 @@ function StatTile({
   icon?: React.ReactNode;
 }) {
   return (
-    <Card className="px-5 py-4">
+    <Card className="card-lift px-5 py-4">
       <div className="flex items-center justify-between">
         <p className="text-[13px] font-medium text-[var(--ink-2)]">{label}</p>
         {icon && <span style={{ color: accent ?? 'var(--ink-3)' }}>{icon}</span>}
       </div>
       <p className="mt-1 text-[28px] font-semibold leading-none tracking-[-0.01em]">
-        {value.toLocaleString('en-IN')}
+        <AnimatedNumber value={value} />
       </p>
     </Card>
   );
