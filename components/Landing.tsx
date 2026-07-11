@@ -45,7 +45,7 @@ export function Landing({ onFiles, onDemo, error, busy }: Props) {
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://github.com/ramsai/whatslens"
+            href="https://github.com/ramsai676/whatslens"
             className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]"
           >
             GitHub

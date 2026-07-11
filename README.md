@@ -57,7 +57,7 @@ Android and iOS export formats, 12/24-hour clocks, and multi-line messages.
 ## Try it
 
 ```bash
-git clone https://github.com/<you>/whatslens
+git clone https://github.com/ramsai676/whatslens
 cd whatslens
 npm install
 npm run dev        # http://localhost:3000
